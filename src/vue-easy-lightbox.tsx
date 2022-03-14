@@ -86,7 +86,7 @@ export default defineComponent({
       default: false
     },
     textHolder: {
-      type: [String],
+      type: [Array, String],
       default: () => '',
       required: false
     }
