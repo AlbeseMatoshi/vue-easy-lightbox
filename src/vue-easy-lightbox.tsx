@@ -86,9 +86,8 @@ export default defineComponent({
       default: false
     },
     textHolder: {
-      type: [Array, String],
-      default: () => '',
-      required: false
+      type: [Array, String] as PropType<Array<string>>,
+      default: ["test", "here", "3", "4", "5"],
     }
   },
   emits: [
@@ -153,7 +152,7 @@ export default defineComponent({
     })
 
     const currentTextholder = computed(() => {
-      return textHolderList.value[imgIndex.value]
+      return textHolderList.value != undefined ? textHolderList.value[imgIndex.value] : null
     })
 
     const imgTitle = computed(() => {
@@ -504,7 +503,7 @@ export default defineComponent({
             }}
           />
             <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 20%; background-color: #00000070">
-              { currentTextholder }
+              { currentTextholder.value }
             </div>
           </div>
         </div>
