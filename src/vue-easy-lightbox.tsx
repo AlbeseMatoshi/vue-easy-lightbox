@@ -484,13 +484,8 @@ export default defineComponent({
           style={imgWrapperStyle.value}
           key="img-wrapper"
         >
-          <div style="position: relative;">
-          <img
-            ref={imgRef}
-            draggable="false"
-            class={`${prefixCls}-img`}
-            src={currentImgSrc.value}
-            onMousedown={onMouseDown}
+          <div style="position: relative;"
+               onMousedown={onMouseDown}
             onMouseup={onMouseUp}
             onMousemove={onMouseMove}
             onTouchstart={onTouchStart}
@@ -500,9 +495,14 @@ export default defineComponent({
             onDblclick={onDblclick}
             onDragstart={(e) => {
               e.preventDefault()
-            }}
+            }}>
+          <img
+            ref={imgRef}
+            draggable="false"
+            class={`${prefixCls}-img`}
+            src={currentImgSrc.value}
           />
-            <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 20%; background-color: #00000070">
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 20%; background-color: #00000070; color: white; text-align: center;">
               { currentTextholder.value }
             </div>
           </div>
