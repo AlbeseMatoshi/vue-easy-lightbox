@@ -84,6 +84,11 @@ export default defineComponent({
     rtl: {
       type: Boolean,
       default: false
+    },
+    textHolder: {
+      type: [String],
+      default: () => '',
+      required: false
     }
   },
   emits: [
@@ -141,6 +146,14 @@ export default defineComponent({
     const currentImgSrc = computed(() => {
       const src = imgList.value[imgIndex.value]?.src
       return src
+    })
+
+    const textHolderList = computed(() => {
+      return props.textHolder
+    })
+
+    const currentTextholder = computed(() => {
+      return textHolderList.value[imgIndex.value]
     })
 
     const imgTitle = computed(() => {
@@ -472,6 +485,7 @@ export default defineComponent({
           style={imgWrapperStyle.value}
           key="img-wrapper"
         >
+          <div style="position: relative;">
           <img
             ref={imgRef}
             draggable="false"
@@ -489,6 +503,10 @@ export default defineComponent({
               e.preventDefault()
             }}
           />
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 20%; background-color: #00000070">
+              { currentTextholder }
+            </div>
+          </div>
         </div>
       )
     }
