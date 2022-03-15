@@ -85,7 +85,9 @@
               onOnIndexChange={this.log}
               onOnPrev={this.log}
               onOnError={this.log}
-            ></VueEasyLightbox>
+            >
+              ...
+            </VueEasyLightbox>
           </div>
         </div>
       )

@@ -492,7 +492,7 @@ export default defineComponent({
             src={currentImgSrc.value}
           />
             <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 20%; background-color: #00000070; color: white; text-align: center;">
-              <slot name="placeholder"></slot>
+              {() => slots.default ? slots.default() : ''}
             </div>
           </div>
         </div>
