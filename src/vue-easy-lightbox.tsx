@@ -85,10 +85,6 @@ export default defineComponent({
       type: Boolean,
       default: false
     },
-    textHolder: {
-      type: [Array, String] as PropType<Array<string>>,
-      default: ["test", "here", "3", "4", "5"],
-    }
   },
   emits: [
     'hide',
@@ -147,13 +143,6 @@ export default defineComponent({
       return src
     })
 
-    const textHolderList = computed(() => {
-      return props.textHolder
-    })
-
-    const currentTextholder = computed(() => {
-      return textHolderList.value != undefined ? textHolderList.value[imgIndex.value] : null
-    })
 
     const imgTitle = computed(() => {
       return imgList.value[imgIndex.value]?.title
@@ -503,7 +492,7 @@ export default defineComponent({
             src={currentImgSrc.value}
           />
             <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 20%; background-color: #00000070; color: white; text-align: center;">
-              { currentTextholder.value }
+              <slot name="placeholder"></slot>
             </div>
           </div>
         </div>
