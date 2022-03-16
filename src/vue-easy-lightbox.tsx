@@ -491,7 +491,7 @@ export default defineComponent({
             class={`${prefixCls}-img`}
             src={currentImgSrc.value}
           />
-            <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 20%; background-color: #00000070; color: white; text-align: center;">
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; background-color: #00000070; color: white; text-align: center;">
               {() => slots.default ? slots.default() : ''}
             </div>
           </div>
